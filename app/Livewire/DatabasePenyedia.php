@@ -46,7 +46,7 @@ class DatabasePenyedia extends Component
     public function mount()
     {
         $this->data_penyedia = Penyedia::with('transaksi')->get();
-
+        // dd($this->data_penyedia);
         foreach ($this->data_penyedia as $penyedia) {
             $rerata = $penyedia->transaksi->avg('nilai');
             $penyedia->rerata_nilai = round($rerata, 1) ?: null;
@@ -76,18 +76,18 @@ class DatabasePenyedia extends Component
                 'tambah_penyedia.alamat' => 'required|string|max:500',
                 'tambah_penyedia.tahun_berdiri' => 'nullable|integer|min:1900|max:2200',
                 'tambah_penyedia.nohp' => 'nullable|string|max:15',
-                'tambah_penyedia.email' => 'nullable|email|max:255',
-                'tambah_penyedia.jenis_usaha' => 'required|string|max:100',
                 'tambah_penyedia.no_identitas' => 'nullable|string|max:50',
-                'tambah_penyedia.pengurus' => 'required|string|max:255',
-                'tambah_penyedia.jabatan' => 'required|string|max:100',
-                'tambah_penyedia.no_akta' => 'required|string|max:50',
-                'tambah_penyedia.tanggal' => 'required|date',
-                'tambah_penyedia.notaris' => 'required|string|max:255',
-                'tambah_penyedia.no_tgl' => 'required|string|max:50',
+                'tambah_penyedia.email' => 'nullable|email|max:255',
+                'tambah_penyedia.jenis_usaha' => 'nullable|string|max:100',
+                'tambah_penyedia.pengurus' => 'nullable|string|max:255',
+                'tambah_penyedia.jabatan' => 'nullable|string|max:100',
+                'tambah_penyedia.no_akta' => 'nullable|string|max:50',
+                'tambah_penyedia.tanggal' => 'nullable|date',
+                'tambah_penyedia.notaris' => 'nullable|string|max:255',
+                'tambah_penyedia.no_tgl' => 'nullable|string|max:50',
                 'tambah_penyedia.masa_berlaku' => 'nullable|string|max:255',
                 'tambah_penyedia.instansi_pemberi' => 'nullable|string|max:255',
-                'tambah_penyedia.npwp' => 'required|string|max:20',
+                'tambah_penyedia.npwp' => 'nullable|string|max:20',
                 'tambah_penyedia.nama_narahubung' => 'required|string|max:255',
                 'tambah_penyedia.nohp_narahubung' => 'required|string|max:255',
                 'tambah_penyedia.jabatan_narahubung' => 'required|string|max:255',

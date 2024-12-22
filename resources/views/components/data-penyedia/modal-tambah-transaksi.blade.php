@@ -19,6 +19,13 @@
                         </div>
                     </div>
                     <div class="row mb-3">
+                        <label for="inputText" class="col-sm-3 col-form-label">Uraian Pekerjaan <span
+                                style="danger">*</span></label>
+                        <div class="col-sm-9">
+                            <textarea class="form-control" style="height: 50px" wire:model="transaksi.uraian_pekerjaan" required></textarea>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
                         <label for="inputText" class="col-sm-3 col-form-label">Tanggal Transaksi</label>
                         <div class="col-sm-9">
                             <input wire:model="transaksi.tanggal" type="date" class="form-control">
@@ -29,12 +36,6 @@
                         <div class="col-sm-9">
                             <input wire:model="transaksi.tahun_anggaran" type="number" class="form-control"
                                 min="2000" max="2100">
-                        </div>
-                    </div>
-                    <div class="row mb-3">
-                        <label for="inputText" class="col-sm-3 col-form-label">Keterangan</label>
-                        <div class="col-sm-9">
-                            <textarea class="form-control" style="height: 50px" wire:model="transaksi.keterangan"></textarea>
                         </div>
                     </div>
                     <table class="table">

@@ -17,7 +17,7 @@ return new class extends Migration
             $table->date('tanggal');
             $table->foreignId('penyedia_id')->constrained();
             $table->bigInteger('nilai_kontrak');
-            $table->string('keterangan')->nullable();
+            $table->string('uraian_pekerjaan')->nullable();
             $table->decimal('nilai', 10, 2)->nullable();
             $table->year('tahun_anggaran');
             $table->softDeletes();

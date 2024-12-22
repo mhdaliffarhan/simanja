@@ -16,7 +16,7 @@ class Transaksi extends Model
         'nilai_kontrak',
         'nilai',
         'tahun_anggaran',
-        'keterangan',
+        'uraian_pekerjaan',
     ];
 
     protected static function boot()

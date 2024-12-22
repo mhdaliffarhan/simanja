@@ -26,9 +26,10 @@ class DetailDataPenyedia extends Component
         'tanggal' => '',
         'penyedia_id' => '',
         'nilai_kontrak' => '',
-        'keterangan' => '',
+        'uraian_pekerjaan' => '',
         'tahun_anggaran' => '',
     ];
+
     public $produk_transaksi = [];
 
     public $item;
@@ -36,6 +37,8 @@ class DetailDataPenyedia extends Component
     public $produk;
     public function mount($id)
     {
+        $this->transaksi['tanggal'] = date('Y-m-d');
+        $this->transaksi['tahun_anggaran'] = date('Y');
         $this->penyedia = Penyedia::findOrFail($id);
         $this->data_penyedia = $this->penyedia ? $this->penyedia->toArray() : [];
         // dd($this->data_penyedia);
@@ -69,8 +72,8 @@ class DetailDataPenyedia extends Component
             'data_penyedia.status' => 'required|string|max:100',
             'data_penyedia.alamat' => 'required|string|max:500',
             'data_penyedia.tahun_berdiri' => 'nullable|integer|min:1900|max:' . date('Y'),
-            'data_penyedia.nohp' => 'required|string|max:15',
-            'data_penyedia.email' => 'required|email|max:255',
+            'data_penyedia.nohp' => 'nullable|string|max:15',
+            'data_penyedia.email' => 'nullable|email|max:255',
             'data_penyedia.jenis_usaha' => 'required|string|max:100',
             'data_penyedia.no_identitas' => 'nullable|string|max:50',
             'data_penyedia.pengurus' => 'nullable|string|max:255',

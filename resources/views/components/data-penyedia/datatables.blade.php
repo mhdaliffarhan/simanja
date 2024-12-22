@@ -23,8 +23,7 @@
                     {{-- <th class="text-center">Status</th>
                     <th class="text-center">Alamat</th>
                     <th class="text-center">Tahun Berdiri</th> --}}
-                    <th class="text-center">Nomor Telepon</th>
-                    <th class="text-center">Email</th>
+                    <th class="text-center">Narhubung</th>
                     <th class="text-center">Jenis Usaha</th>
                     <th class="text-center">Rata-rata Nilai</th>
                     <th class="text-center">Action</th>
@@ -44,8 +43,15 @@
                         {{-- <td>{{$item->status}}</td>
                         <td>{{$item->alamat}}</td>
                         <td>{{$item->tahun_berdiri}}</td> --}}
-                        <td class="text-start">{{ $item->nohp }}</td>
-                        <td class="text-start">{{ $item->email }}</td>
+                        <td class="text-center">
+                            <div class="row">
+                                <div class="col-12">
+                                    {{ $item->nama_narahubung }}
+                                </div>
+                                <div class="col-12">
+                                    {{ $item->nohp_narahubung }}</div>
+                            </div>
+                        </td>
                         <td>{{ $item->jenis_usaha }}</td>
                         <td>{{ $item->rerata_nilai }}</td>
                         {{-- <td>{{$item->no_identitas}}</td>

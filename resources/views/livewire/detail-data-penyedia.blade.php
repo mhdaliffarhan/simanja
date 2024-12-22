@@ -51,18 +51,25 @@
                             </div>
                         </div>
                         <div class="row mb-3">
+                            <label for="jenis_usaha_penyedia" class="col-sm-2 col-form-label">Jenis Usaha</label>
+                            <div class="col-sm-10">
+                                <input wire:model="data_penyedia.jenis_usaha"
+                                    value="{{ $data_penyedia['jenis_usaha'] }}" id="jenis_usaha_penyedia" type="text"
+                                    class="form-control" required>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
                             <label for="inputText" class="col-sm-2 col-form-label">Tahun Berdiri</label>
                             <div class="col-sm-10">
                                 <input wire:model="data_penyedia.tahun_berdiri"
-                                    value="{{ $data_penyedia['tahun_berdiri'] }}" type="text" class="form-control"
-                                    required>
+                                    value="{{ $data_penyedia['tahun_berdiri'] }}" type="text" class="form-control">
                             </div>
                         </div>
                         <div class="row mb-3">
                             <label for="nohp_penyedia" class="col-sm-2 col-form-label">No HP</label>
                             <div class="col-sm-10">
                                 <input wire:model="data_penyedia.nohp" value="{{ $data_penyedia['nohp'] }}"
-                                    type="text" class="form-control" required>
+                                    type="text" class="form-control">
                             </div>
                         </div>
                         <div class="row mb-3">
@@ -71,17 +78,8 @@
                                 <div class="input-group">
                                     <span class="input-group-text" id="inputGroupPrepend">@</span>
                                     <x-text-input wire:model="data_penyedia.email" id="email_penyedia"
-                                        value="{{ $data_penyedia['email'] }}" class="form-control" type="email"
-                                        required />
+                                        value="{{ $data_penyedia['email'] }}" class="form-control" type="email" />
                                 </div>
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <label for="jenis_usaha_penyedia" class="col-sm-2 col-form-label">Jenis Usaha</label>
-                            <div class="col-sm-10">
-                                <input wire:model="data_penyedia.jenis_usaha"
-                                    value="{{ $data_penyedia['jenis_usaha'] }}" id="jenis_usaha_penyedia" type="text"
-                                    class="form-control" required>
                             </div>
                         </div>
                         <div class="mb-3 mt-2">
@@ -92,21 +90,21 @@
                             <div class="col-sm-10">
                                 <input wire:model="data_penyedia.no_identitas"
                                     value="{{ $data_penyedia['no_identitas'] }}" id="no_identitas_pengurus"
-                                    type="text" class="form-control" required>
+                                    type="text" class="form-control">
                             </div>
                         </div>
                         <div class="row mb-3">
                             <label for="pengurus_pengurus" class="col-sm-2 col-form-label">Nama Pengurus</label>
                             <div class="col-sm-10">
                                 <input wire:model="data_penyedia.pengurus" value="{{ $data_penyedia['pengurus'] }}"
-                                    id="pengurus_pengurus" type="text" class="form-control" required>
+                                    id="pengurus_pengurus" type="text" class="form-control">
                             </div>
                         </div>
                         <div class="row mb-3">
                             <label for="jabatan_pengurus" class="col-sm-2 col-form-label">Nama Pengurus</label>
                             <div class="col-sm-10">
                                 <input wire:model="data_penyedia.jabatan" value="{{ $data_penyedia['jabatan'] }}"
-                                    id="jabatan_pengurus" type="text" class="form-control" required>
+                                    id="jabatan_pengurus" type="text" class="form-control">
                             </div>
                         </div>
                         <div class="mb-3 mt-2">
@@ -116,21 +114,21 @@
                             <label for="no_akta" class="col-sm-2 col-form-label">Nomor Akta</label>
                             <div class="col-sm-10">
                                 <input wire:model="data_penyedia.no_akta" value="{{ $data_penyedia['no_akta'] }}"
-                                    id="no_akta" type="text" class="form-control" required>
+                                    id="no_akta" type="text" class="form-control">
                             </div>
                         </div>
                         <div class="row mb-3">
                             <label for="tanggal" class="col-sm-2 col-form-label">Tanggal</label>
                             <div class="col-sm-10">
                                 <input wire:model="data_penyedia.tanggal" value="{{ $data_penyedia['tanggal'] }}"
-                                    id="tanggal" type="date" class="form-control" required>
+                                    id="tanggal" type="date" class="form-control">
                             </div>
                         </div>
                         <div class="row mb-3">
                             <label for="notaris" class="col-sm-2 col-form-label">Notaris</label>
                             <div class="col-sm-10">
                                 <input wire:model="data_penyedia.notaris" value="{{ $data_penyedia['notaris'] }}"
-                                    id="notaris" type="text" class="form-control" required>
+                                    id="notaris" type="text" class="form-control">
                             </div>
                         </div>
                         <div class="mb-3 mt-2">
@@ -140,7 +138,7 @@
                             <label for="no_tgl" class="col-sm-2 col-form-label">No/Tgl Izin Usaha</label>
                             <div class="col-sm-10">
                                 <input wire:model="data_penyedia.no_tgl" value="{{ $data_penyedia['no_tgl'] }}"
-                                    id="no_tgl" type="text" class="form-control" required>
+                                    id="no_tgl" type="text" class="form-control">
                             </div>
                         </div>
                         <div class="row mb-3">
@@ -148,7 +146,7 @@
                             <div class="col-sm-10">
                                 <input wire:model="data_penyedia.masa_berlaku"
                                     value="{{ $data_penyedia['masa_berlaku'] }}" id="masa_berlaku" type="text"
-                                    class="form-control" required>
+                                    class="form-control">
                             </div>
                         </div>
                         <div class="row mb-3">
@@ -156,7 +154,7 @@
                             <div class="col-sm-10">
                                 <input wire:model="data_penyedia.instansi_pemberi"
                                     value="{{ $data_penyedia['instansi_pemberi'] }}" id="instansi_pemberi"
-                                    type="text" class="form-control" required>
+                                    type="text" class="form-control">
                             </div>
                         </div>
                         <div class="mb-3 mt-2">
@@ -166,7 +164,7 @@
                             <label for="npwpi" class="col-sm-2 col-form-label">NPWP</label>
                             <div class="col-sm-10">
                                 <input wire:model="data_penyedia.npwp" value="{{ $data_penyedia['npwp'] }}"
-                                    id="npwp" type="text" class="form-control" required>
+                                    id="npwp" type="text" class="form-control">
                             </div>
                         </div>
                         <div class="mb-3 mt-2">

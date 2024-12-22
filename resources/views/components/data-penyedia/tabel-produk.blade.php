@@ -35,6 +35,7 @@
                                     {{ $itemm->harga }}
                                 </td>
                                 <td>
+                                    @include('components.data-penyedia.modal-edit-produk')
                                     @include('components.data-penyedia.modal-delete-produk')
                                 </td>
                             </tr>

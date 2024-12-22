@@ -17,13 +17,13 @@
                             <span class="text-muted pt-1 fw-bold">Data Badan Usaha</span>
                         </div>
                         <div class="row mb-3">
-                            <label for="inputText" class="col-sm-2 col-form-label">Nama</label>
+                            <label for="inputText" class="col-sm-2 col-form-label">Nama *</label>
                             <div class="col-sm-10">
                                 <input wire:model="tambah_penyedia.nama" type="text" class="form-control" required>
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <label class="col-sm-2 col-form-label">Status</label>
+                            <label class="col-sm-2 col-form-label">Status *</label>
                             <div class="col-sm-10">
                                 <select wire:model="tambah_penyedia.status" class="form-select"
                                     aria-label="Default select example" required>
@@ -34,7 +34,7 @@
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <label for="alamat_penyedia" class="col-sm-2 col-form-label">Alamat</label>
+                            <label for="alamat_penyedia" class="col-sm-2 col-form-label">Alamat *</label>
                             <div class="col-sm-10">
                                 <textarea wire:model="tambah_penyedia.alamat" id="alamat_penyedia" required class="form-control" style="height: 50px"></textarea>
                             </div>
@@ -151,24 +151,24 @@
                             </div>
                         </div>
                         <div class="mb-3 mt-2">
-                            <span class="text-muted pt-1 fw-bold">Narahubung</span>
+                            <span class="text-muted pt-1 fw-bold">Narahubung *</span>
                         </div>
                         <div class="row mb-3">
-                            <label for="nama_narahubung" class="col-sm-2 col-form-label">Nama</label>
+                            <label for="nama_narahubung" class="col-sm-2 col-form-label">Nama *</label>
                             <div class="col-sm-10">
                                 <input wire:model="tambah_penyedia.nama_narahubung" id="nama_narahubung"
                                     type="text" class="form-control" required>
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <label for="nohp_narahubung" class="col-sm-2 col-form-label">Ho HP</label>
+                            <label for="nohp_narahubung" class="col-sm-2 col-form-label">Ho HP *</label>
                             <div class="col-sm-10">
                                 <input wire:model="tambah_penyedia.nohp_narahubung" id="nohp_narahubung"
                                     type="text" class="form-control" required>
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <label for="jabatan_narahubung" class="col-sm-2 col-form-label">Jabatan</label>
+                            <label for="jabatan_narahubung" class="col-sm-2 col-form-label">Jabatan *</label>
                             <div class="col-sm-10">
                                 <input wire:model="tambah_penyedia.jabatan_narahubung" id="jabatan_narahubung"
                                     type="text" class="form-control" required>

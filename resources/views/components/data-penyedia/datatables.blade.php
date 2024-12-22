@@ -66,7 +66,7 @@
                 <td>{{$item->npwp}}</td> --}}
                         <td>
                             <!-- INCLUDE -->
-                            @include('components.data-penyedia.modal-tambah-produk')
+                            {{-- @include('components.data-penyedia.modal-tambah-produk') --}}
                             @include('components.data-penyedia.modal-edit')
                             @include('components.data-penyedia.modal-delete')
                         </td>

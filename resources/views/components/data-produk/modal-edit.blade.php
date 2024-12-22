@@ -1,11 +1,11 @@
-<a href="/detail-data-produk/{{$item->id}}" class="btn btn-success">
-  <i class="bi bi-pencil"></i>
-   Edit
+<a href="/detail-data-produk/{{ $item->id }}" class="btn btn-success">
+    <i class="bi bi-sd-card"></i>
+    Edit
 </a>
-  
-  
-  <!-- MODAL Edit PRODUK -->
-  {{-- <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalEditProduk{{$item->id}}">
+
+
+<!-- MODAL Edit PRODUK -->
+{{-- <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalEditProduk{{$item->id}}">
     <i class="bi bi-pencil"></i>
     Edit
   </button>

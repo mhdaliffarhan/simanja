@@ -19,8 +19,7 @@
                         </div>
                     </div>
                     <div class="row mb-3">
-                        <label for="inputText" class="col-sm-3 col-form-label">Uraian Pekerjaan <span
-                                style="danger">*</span></label>
+                        <label for="inputText" class="col-sm-3 col-form-label">Uraian Pekerjaan</label>
                         <div class="col-sm-9">
                             <textarea class="form-control" style="height: 50px" wire:model="transaksi.uraian_pekerjaan" required></textarea>
                         </div>

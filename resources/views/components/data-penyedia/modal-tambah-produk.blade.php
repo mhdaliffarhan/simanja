@@ -4,10 +4,10 @@
     <i class="bi bi-plus-lg"></i>
 </button>
 <div class="modal fade" id="modalTambahProduk({{ $item->id }})" tabindex="-1">
-    <div class="modal-dialog .modal-dialog-scrollable modal-dialog-centered modal-lg ">
+    <div class="modal-dialog .modal-dialog-scrollable modal-dialog-centered ">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Tambah Data Produk {{ $item->nama }}</h5>
+                <h5 class="modal-title">Tambah Produk {{ $item->nama }}</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form wire:submit='tambahProduk({{ $item->id }})'>

@@ -15,6 +15,7 @@ use App\Livewire\DatabaseTransaksi;
 use App\Livewire\DetailDataPegawai;
 use App\Livewire\DetailDataPenyedia;
 use Illuminate\Support\Facades\Route;
+use App\Livewire\DetailDataProdukPenyedia;
 
 Route::get('/', function () {
     return redirect('/login');
@@ -27,17 +28,17 @@ Route::middleware('auth')->group(function () {
     Route::get('/database-pegawai', DatabasePegawai::class)->name('database-pegawai');
     Route::get('/detail-data-pegawai/{id}', DetailDataPegawai::class)->name('detail-data-pegawai');
 
+    Route::get('/database-produk', DatabaseProduk::class)->name('database-produk');
+    Route::get('/detail-data-produk/{id}', DetailDataProduk::class)->name('detail-data-produk');
 
+    Route::get('/database-penyedia', DatabasePenyedia::class)->name('database-penyedia');
+    Route::get('/detail-data-penyedia/{id}', DetailDataPenyedia::class)->name('detail-data-penyedia');
+    Route::get('/detail-data-produk-penyedia/{id}', DetailDataProdukPenyedia::class)->name('detail-data-produk-penyedia');
 
     Route::get('/transaksi', DatabaseTransaksi::class)->name('transaksi');
     Route::get('/tambah-transaksi', TambahTransaksi::class)->name('tambah-transaksi');
     Route::get('/detail-transaksi/{id}', DetailTransaksi::class)->name('detail-transaksi');
 
-    Route::get('/database-penyedia', DatabasePenyedia::class)->name('database-penyedia');
-    Route::get('/detail-data-penyedia/{id}', DetailDataPenyedia::class)->name('detail-data-penyedia');
-
-    Route::get('/database-produk', DatabaseProduk::class)->name('database-produk');
-    Route::get('/detail-data-produk/{id}', DetailDataProduk::class)->name('detail-data-produk');
 
     Route::get('/daftar-pengentri', DaftarAdmin::class)->name('daftar-admin');
     Route::get('/aspek-kinerja', AspekKinerja::class)->name('aspek-kinerja');

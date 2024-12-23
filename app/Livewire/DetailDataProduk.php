@@ -31,17 +31,12 @@ class DetailDataProduk extends Component
             $this->produk->update($validated['data_produk']);
 
             // Kirim pesan sukses
-            $this->dispatch('edit-produk');
-        } catch (ValidationException $e) {
-            // Tangkap kesalahan validasi dan reset data input
-            $this->resetErrorBag();
-            $this->resetValidation();
-
-            // Ulangkan kesalahan agar bisa ditangani oleh Livewire
-            throw $e;
-        } catch (\Exception $e) {
-            // Tangkap error lain dan tampilkan pesan error
-            $this->addError('general', 'Terjadi kesalahan saat menyimpan data: ' . $e->getMessage());
+            Alert::success('Berhasil', 'Berhasil memperbarui data produk!');
+            return redirect()->route('database-produk');
+        } catch (\Throwable $th) {
+            // Kirim pesan error untuk validasi
+            Alert::error('Gagal', $th->getMessage());
+            return redirect()->route('detail-data-produk', ['id' => $this->data_produk['id']]);
         }
     }
 

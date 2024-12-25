@@ -40,7 +40,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/tambah-transaksi', TambahTransaksi::class)->name('tambah-transaksi');
     Route::get('/detail-transaksi/{id}', DetailTransaksi::class)->name('detail-transaksi');
 
-    Route::get('/nilai', Nilai::class)->name('nilai');
+    Route::get('/nilai/{id}', Nilai::class)->name('nilai');
 
     Route::get('/daftar-pengentri', DaftarAdmin::class)->name('daftar-admin');
     Route::get('/aspek-kinerja', AspekKinerja::class)->name('aspek-kinerja');

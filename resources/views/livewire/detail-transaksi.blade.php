@@ -39,7 +39,7 @@
                     <div class="row mb-3">
                         <label for="inputText" class="col-sm-3 col-form-label">Nama Paket Pengadaan</label>
                         <div class="col-sm-9">
-                            <textarea class="form-control" style="height: 50px" wire:model="transaksi.keterangan"></textarea>
+                            <textarea class="form-control" style="height: 50px" wire:model="transaksi.uraian_pekerjaan"></textarea>
                         </div>
                     </div>
                     <table class="table">

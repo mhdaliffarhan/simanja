@@ -15,6 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('aspek_kinerja');
             $table->integer('bobot');
+            $table->text('cukup');
+            $table->text('baik');
+            $table->text('sangat_baik');
             $table->softDeletes();
             $table->timestamps();
         });

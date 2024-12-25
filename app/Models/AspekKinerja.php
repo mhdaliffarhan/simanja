@@ -13,7 +13,10 @@ class AspekKinerja extends Model
 
     protected $fillable = [
         'aspek_kinerja',
-        'bobot'
+        'bobot',
+        'cukup',
+        'baik',
+        'sangat_baik'
     ];
 
     public static function getAll()

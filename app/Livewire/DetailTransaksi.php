@@ -19,7 +19,7 @@ class DetailTransaksi extends Component
         'tanggal' => '',
         'penyedia_id' => '',
         'nilai_kontrak' => '',
-        'keterangan' => '',
+        'uraian_pekerjaan' => '',
         'tahun_anggaran' => '',
     ];
     public $produk_transaksi = [];
@@ -35,7 +35,7 @@ class DetailTransaksi extends Component
                 'tanggal' => $data_transaksi->tanggal,
                 'penyedia_id' => $data_transaksi->penyedia_id,
                 'nilai_kontrak' => $data_transaksi->nilai_kontrak,
-                'keterangan' => $data_transaksi->keterangan,
+                'uraian_pekerjaan' => $data_transaksi->uraian_pekerjaan,
                 'tahun_anggaran' => $data_transaksi->tahun_anggaran,
             ];
 

@@ -3,41 +3,36 @@
 namespace App\Livewire;
 
 use Livewire\Component;
+use App\Models\LogNilai;
 use App\Models\Transaksi;
 use App\Models\AspekKinerja;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class Nilai extends Component
 {
     public $aspek_kinerja;
     public $transaksi;
-
-    public $kualitas, $biaya, $waktu, $layanan;
-    public $skor_waktu, $skor_layanan;
-    public $skor_kualitas = 0; // Nilai awal
-    public $kinerja_kualitas = 0; // Nilai kinerja untuk kualitas
-
-    // Properti lain jika diperlukan
-    public $skor_biaya = 0;
-    public $kinerja_biaya = 0;
-
-    public $total_kinerja = 0;
-    public $predikat = '';
+    public $selectedValues = [
+        "1" => 0,
+        "2" => 0,
+        "3" => 0,
+        "4" => 0,
+    ];
+    public $nilai, $predikat;
+    public $nilai_akhir;
 
     public function updated()
     {
-        $this->hitungKinerja();
+        $this->hitungNilai();
     }
 
-    public function hitungKinerja()
+    public function hitungNilai()
     {
-        $this->total_kinerja = (
-            (30 * $this->skor_kualitas) +
-            (20 * $this->skor_biaya) +
-            (30 * $this->skor_waktu) +
-            (20 * $this->skor_layanan)
-        ) / 100;
-
-        $this->predikat = $this->tentukanPredikat($this->total_kinerja);
+        $this->nilai_akhir = 0;
+        foreach ($this->aspek_kinerja as $key => $aspek) {
+            $this->nilai_akhir = $this->nilai_akhir + ($this->selectedValues[$key + 1] * $aspek->bobot / 100);
+        }
+        $this->predikat = $this->tentukanPredikat($this->nilai_akhir);
     }
 
     private function tentukanPredikat($nilai)
@@ -46,17 +41,41 @@ class Nilai extends Component
         if ($nilai >= 2) return 'Baik';
         return 'Cukup';
     }
+
     public function mount($id)
     {
-        $this->transaksi = Transaksi::findorFail($id);
+        $this->transaksi = Transaksi::where('id', $id)->with('penyedia')->first();
+        $this->aspek_kinerja = AspekKinerja::getAll();
     }
 
+    public function save()
+    {
+        try {
+            $validatedData = $this->validate([
+                'selectedValues.*' => 'required|in:1,2,3',
+            ], [
+                'selectedValues.*.in' => 'Setiap soal harus memiliki satu pilihan.',
+            ]);
+            foreach ($this->selectedValues as $key => $value) {
+                LogNilai::create([
+                    'transaksi_id' => $this->transaksi->id,
+                    'aspek_kinerja_id' => $key,
+                    'nilai_kinerja' => $value,
+                ]);
+            }
+            $this->transaksi->nilai = $this->nilai_akhir;
+            $transaksi = $this->transaksi->toArray();
+            $this->transaksi->update($transaksi);
+
+            Alert::success('Berhasil', 'Berhasil menilai transaksi!');
+            return redirect()->route('transaksi');
+        } catch (\Throwable $th) {
+            Alert::error('Gagal', $th->getMessage());
+            return redirect()->route('nilai', ['id' => $this->transaksi->id]);
+        }
+    }
     public function render()
     {
-        $aspek_kinerja = AspekKinerja::getAll();
-
-        $this->aspek_kinerja = $aspek_kinerja ? $aspek_kinerja->toArray() : [];
-        // dd($this->aspek_kinerja);
         return view('livewire.nilai')->layout('layouts.app');
     }
 }

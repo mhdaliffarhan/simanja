@@ -29,7 +29,7 @@
 
     <!-- Template Main CSS File -->
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
-
+    @livewireStyles
 </head>
 
 <body>
@@ -44,9 +44,6 @@
         {{ $slot }}
     </main>
 
-    <!-- SWEETALERT-->
-    @include('sweetalert::alert', ['cdn' => 'https://cdn.jsdelivr.net/npm/sweetalert2@9'])
-
     <!-- Vendor JS Files -->
     <script src="{{ asset('assets/vendor/apexcharts/apexcharts.min.js') }}"></script>
     <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
@@ -60,6 +57,7 @@
     <script src="{{ asset('assets/js/main.js') }}"></script>
 
     @include('sweetalert::alert')
+    @livewireScripts
 </body>
 
 </html>

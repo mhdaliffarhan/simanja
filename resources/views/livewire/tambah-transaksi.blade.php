@@ -17,20 +17,11 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        {{-- <div class="row">
-
-                        </div> --}}
                         <h5 class="card-title">Penyedia</h5>
-                        <div class="row mb-3">
-                            <label for="inputText" class="col-sm-2 col-form-label">Tanggal</label>
-                            <div class="col-sm-10">
-                                <input wire:model="tambah_transaksi.tanggal" type="date" class="form-control">
-                            </div>
-                        </div>
                         <div class="row mb-3">
                             <label class="col-sm-2 col-form-label">Penyedia</label>
                             <div class="col-sm-10">
-                                <select wire:model="tambah_transaksi.penyedia_id" class="form-select"
+                                <select wire:model="transaksi.penyedia_id" class="form-select"
                                     aria-label="Default select example">
                                     <option value="{{ null }}" selected>Pilih penyedia</option>
                                     @foreach ($daftar_penyedia as $item)
@@ -40,12 +31,67 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="row justify-content-md-end mb-3">
+                        <div class="row mb-3">
+                            <label for="inputText" class="col-sm-2 col-form-label">Uraian Pekerjaan</label>
+                            <div class="col-sm-10">
+                                <textarea class="form-control" style="height: 50px" wire:model="transaksi.uraian_pekerjaan" required></textarea>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="inputText" class="col-sm-2 col-form-label">Tanggal Transaksi</label>
+                            <div class="col-sm-10">
+                                <input wire:model="transaksi.tanggal" type="date" class="form-control">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="inputText" class="col-sm-2 col-form-label">Tahun Anggaran</label>
+                            <div class="col-sm-10">
+                                <input wire:model="transaksi.tahun_anggaran" type="number" class="form-control"
+                                    min="2000" max="2100">
+                            </div>
+                        </div>
+                        {{-- <div class="row justify-content-md-end mb-3">
                             <div class="col-12 col-md-10">
                                 <button wire:click="nextStep" class="btn btn-primary w-100">Selanjutnya</button>
                             </div>
+                        </div> --}}
+                        <h5 class="card-title">Produk</h5>
+                        <div class="row">
+                            <div class="col-12">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th class=" text-center text-muted pt-1 fw-bold">No</th>
+                                            <th class=" text-center text-muted pt-1 fw-bold">Produk</th>
+                                            <th class=" text-center text-muted pt-1 fw-bold">Harga</th>
+                                            <th class=" text-center text-muted pt-1 fw-bold">Jumlah</th>
+                                            <th class=" text-center text-muted pt-1 fw-bold">Total</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($daftar_produk_transaksi as $key => $produk)
+                                            <tr>
+                                                <td class="text-center">{{ $key + 1 }}</td>
+                                                <td>
+                                                    <select wire:model="daftar_produk_transaksi.{{$key}}.produk_id" class="form-select"
+                                                        aria-label="Default select example" wire.poll.1s>
+                                                        <option value="{{ null }}" selected>Pilih produk</option>
+                                                        @foreach ($daftar_produk_penyedia as $itemm)
+                                                            <option value="{{ $itemm->produk->id }}">{{ $itemm->produk->nama}}
+                                                            </option>
+                                                        @endforeach
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <input class="form-control" wire:model="daftar_produk_transaksi.{{$key}}.harga" type="number"
+                                                        name="" id="">
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
-                        {{-- </form> --}}
                     </div>
                 </div>
             </div>

@@ -41,7 +41,9 @@
                         <td>{{ $transaksi->nilai }}</td>
                         <td>
                             @if (is_null($transaksi->nilai) && auth()->user()->role === 'supervisor')
-                                @include('components.transaksi.modal-nilai')
+                                <a href="/nilai/{{$transaksi->id}}" class="btn btn-warning">
+                                    <i class="bi bi-ui-checks"></i> Nilai
+                                </a>
                             @else
                                 <button type="button" class="btn btn-secondary" disabled>
                                     <i class="bi bi-ui-checks"></i> Nilai

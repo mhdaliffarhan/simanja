@@ -106,7 +106,9 @@
                                                 <td>{{ $transaksi->penyedia->nama }}</td>
                                                 <td>{{ $transaksi->tanggal }}</td>
                                                 <td>
-                                                    @include('components.transaksi.modal-nilai')
+                                                    <a href="/nilai/{{$transaksi->id}}" class="btn btn-warning">
+                                                        <i class="bi bi-ui-checks"></i> Nilai
+                                                    </a>
                                                 </td>
                                             </tr>
                                         @endforeach

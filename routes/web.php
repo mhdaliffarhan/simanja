@@ -10,6 +10,7 @@ use App\Livewire\DatabasePegawai;
 use App\Livewire\DetailTransaksi;
 use App\Livewire\TambahTransaksi;
 use App\Livewire\DatabasePenyedia;
+use App\Livewire\TambahPenyedia;
 use App\Livewire\DetailDataProduk;
 use App\Livewire\InputAngkaKredit;
 use App\Livewire\DatabaseTransaksi;
@@ -33,11 +34,13 @@ Route::middleware('auth')->group(function () {
     Route::get('/detail-data-produk/{id}', DetailDataProduk::class)->name('detail-data-produk');
 
     Route::get('/database-penyedia', DatabasePenyedia::class)->name('database-penyedia');
+    Route::get('/tambah-penyedia', TambahPenyedia::class)->name('tambah-penyedia');
     Route::get('/detail-data-penyedia/{id}', DetailDataPenyedia::class)->name('detail-data-penyedia');
     Route::get('/detail-data-produk-penyedia/{id}', DetailDataProdukPenyedia::class)->name('detail-data-produk-penyedia');
 
     Route::get('/transaksi', DatabaseTransaksi::class)->name('transaksi');
     Route::get('/tambah-transaksi', TambahTransaksi::class)->name('tambah-transaksi');
+    // Route::get('/tambah-transaksi/{id}', TambahTransaksi::class)->name('tambah-transaksi');
     Route::get('/detail-transaksi/{id}', DetailTransaksi::class)->name('detail-transaksi');
 
     Route::get('/nilai/{id}', Nilai::class)->name('nilai');

@@ -10,15 +10,23 @@ use App\Models\ProdukPenyedia;
 
 class TambahTransaksi extends Component
 {
-    public $tambah_transaksi = [
+    public $transaksi = [
         'tanggal' => '',
         'penyedia_id' => '',
+        'nilai_kontrak' => '',
+        'uraian_pekerjaan' => '',
+        'tahun_anggaran' => '',
     ];
-    public $daftar_transaksi;
-    public $daftar_penyedia;
-    public $daftar_produk_penyedia;
 
-    public $produk_transaksi = [];
+    public $daftar_penyedia;
+    public $daftar_produk_penyedia = [];
+
+    public $daftar_produk_transaksi = [[
+        'produk_id' => '',
+        'harga' => '',
+        'jumlah' => '',
+        'total' => '',
+    ]];
 
     public $penyedia;
     public $data_produk;
@@ -29,48 +37,16 @@ class TambahTransaksi extends Component
 
     public $item;
 
+    public function updated()
+    {
+        // dd($this->transaksi['penyedia_id']);
+        $this->daftar_produk_penyedia = ProdukPenyedia::where('penyedia_id', $this->transaksi['penyedia_id'] ?? null)->select('penyedia_id', 'produk_id')->with('penyedia', 'produk')->get();
+        // dd($this->daftar_produk_penyedia);
+    }
 
     public function mount()
     {
-        $this->daftar_transaksi = Transaksi::getAll();
         $this->daftar_penyedia = Penyedia::getAll();
-    }
-
-    public function tambah_input_produk_transaksi()
-    {
-        $this->produk_transaksi[] = [
-            'transaksi_id' => '',
-            'produk_id' => '',
-            'jumlah' => '',
-            'total' => '',
-        ];
-        // dd($this->produk_transaksi);
-    }
-
-    public function nextStep()
-    {
-        $this->formStep++;
-        // dd($this->formStep);
-        $id = $this->tambah_transaksi['penyedia_id'];
-        $this->data_produk = ProdukPenyedia::where('penyedia_id', $id)
-            ->with('penyedia', 'produk')
-            ->get();
-        $this->penyedia = Penyedia::findOrFail($id);
-        $this->item = $this->penyedia;
-        $count = count($this->data_produk);
-        for ($i = 0; $i < $count; $i++) {
-            $this->produk_transaksi[] = [
-                'transaksi_id' => '',
-                'produk_id' => '',
-                'jumlah' => '',
-                'total' => '',
-            ];
-        }
-    }
-
-    public function backStep()
-    {
-        $this->formStep--;
     }
 
     public function tambahTransaksi()
@@ -82,7 +58,6 @@ class TambahTransaksi extends Component
 
     public function render()
     {
-        $this->daftar_produk_penyedia = ProdukPenyedia::select('penyedia_id', 'produk_id')->with('penyedia', 'produk')->get();
         return view('livewire.tambah-transaksi')->layout('layouts.app');
     }
 }

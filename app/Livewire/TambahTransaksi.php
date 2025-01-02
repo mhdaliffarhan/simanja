@@ -32,13 +32,6 @@ class TambahTransaksi extends Component
 
     public $total_kontrak = 0;
 
-    public $penyedia;
-    public $data_produk;
-
-    public $daftar_produk;
-
-    public $item;
-
     public function updatedTransaksiPenyediaId($value)
     {
         if ($value) {
@@ -94,8 +87,8 @@ class TambahTransaksi extends Component
     }
 
     public function tambahTransaksi(){
-        $this->transaksi['nilai_kontrak'] = $this->total_kontrak;
         try {
+            $this->transaksi['nilai_kontrak'] = $this->total_kontrak;
             $validateData = $this->validate([
                 'transaksi.tanggal' => 'required|date',
                 'transaksi.penyedia_id' => 'required',

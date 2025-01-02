@@ -94,14 +94,14 @@
                                                     {{ $daftar_produk_transaksi[$key]['total'] }}
                                                 </td>
                                                 <td>
-                                                    <button class="btn btn-outline-danger" wire:click="hapusProdukTransaksi({{ $key }})"><i class="bi bi-trash"></i> Hapus</button>
+                                                    <button class="btn btn-outline-danger" type="button" wire:click="hapusProdukTransaksi({{ $key }})"><i class="bi bi-trash"></i> Hapus</button>
                                                 </td>
                                             </tr>
                                         @endforeach
                                             <tr class="text-center align-middle">
                                                 <td></td>
                                                 <td colspan="3">
-                                                    <button class="btn btn-outline-primary w-100" wire:click="tambahProdukTransaksi"><i class="bi bi-plus-lg"></i>Tambah Produk</button>
+                                                    <button class="btn btn-outline-primary w-100" type="button" wire:click="tambahProdukTransaksi"><i class="bi bi-plus-lg"></i>Tambah Produk</button>
                                                 </td>
                                                 <td  class="text-muted pt-1 fw-bold">{{ $total_kontrak }}</td>
                                                 <td>

@@ -4,6 +4,7 @@
         <nav>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Dashboard</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('transaksi') }}">Transaksi</a></li>
                 <li class="breadcrumb-item active">Nilai</li>
             </ol>
         </nav>
@@ -24,7 +25,7 @@
                         </div>
                         <div class="col-12">
                             <div class="row mb-3">
-                                <label for="inputText" class="col-sm-2 col-form-label">Paket Pekerjaan</label>
+                                <label for="inputText" class="col-sm-2 col-form-label">Paket Pengadaan</label>
                                 <div class="col-md-8 col-sm-12">
                                     <input value="{{ $transaksi->uraian_pekerjaan }}" type="text"
                                         class="form-control" disabled>

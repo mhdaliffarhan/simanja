@@ -6,7 +6,8 @@
                 <h5 class="card-title">Daftar Transaksi</h5>
             </div>
             <div class="col-auto mt-3 mb-3">
-                @include('components.data-penyedia.modal-tambah-transaksi')
+                <a href="/tambah-transaksi" class="btn btn-primary">
+                    <i class="bi bi-plus-lg"></i></a>
             </div>
         </div>
         <div class="row">

@@ -12,11 +12,11 @@
 </x-slot>
 
 <section class="section dashboard">
-    <div class="row">
-        @if ($formStep == 1)
+    <div class="row" wire:poll.1s>
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
+                        <form wire:submit.prevent="tambahTransaksi">
                         <h5 class="card-title">Penyedia</h5>
                         <div class="row mb-3">
                             <label class="col-sm-2 col-form-label">Penyedia</label>
@@ -50,11 +50,6 @@
                                     min="2000" max="2100">
                             </div>
                         </div>
-                        {{-- <div class="row justify-content-md-end mb-3">
-                            <div class="col-12 col-md-10">
-                                <button wire:click="nextStep" class="btn btn-primary w-100">Selanjutnya</button>
-                            </div>
-                        </div> --}}
                         <h5 class="card-title">Produk</h5>
                         <div class="row">
                             <div class="col-12">
@@ -66,15 +61,15 @@
                                             <th class=" text-center text-muted pt-1 fw-bold">Harga</th>
                                             <th class=" text-center text-muted pt-1 fw-bold">Jumlah</th>
                                             <th class=" text-center text-muted pt-1 fw-bold">Total</th>
+                                            <th class=" text-center text-muted pt-1 fw-bold">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @foreach ($daftar_produk_transaksi as $key => $produk)
-                                            <tr>
-                                                <td class="text-center">{{ $key + 1 }}</td>
+                                            <tr class="text-center align-middle">
+                                                <td >{{ $key + 1 }}</td>
                                                 <td>
-                                                    <select wire:model="daftar_produk_transaksi.{{$key}}.produk_id" class="form-select"
-                                                        aria-label="Default select example" wire.poll.1s>
+                                                    <select wire:model="daftar_produk_transaksi.{{$key}}.produk_id" class="form-select" >
                                                         <option value="{{ null }}" selected>Pilih produk</option>
                                                         @foreach ($daftar_produk_penyedia as $itemm)
                                                             <option value="{{ $itemm->produk->id }}">{{ $itemm->produk->nama}}
@@ -83,73 +78,44 @@
                                                     </select>
                                                 </td>
                                                 <td>
-                                                    <input class="form-control" wire:model="daftar_produk_transaksi.{{$key}}.harga" type="number"
-                                                        name="" id="">
+                                                    <div class="row mx-4">
+                                                        <div class="input-group">
+                                                            <input class="form-control" wire:model="daftar_produk_transaksi.{{$key}}.harga" type="number" required>
+                                                            <span class="input-group-text" id="basic-addon2">/{{ $daftar_produk_transaksi[$key]['satuan']}}</span>
+                                                          </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <input class="form-control" wire:model="daftar_produk_transaksi.{{$key}}.jumlah" type="number"
+                                                        name="" id="" required>
+                                                </td>
+                                                <td>
+                                                    {{ $daftar_produk_transaksi[$key]['total'] }}
+                                                </td>
+                                                <td>
+                                                    <button class="btn btn-outline-danger" wire:click="hapusProdukTransaksi({{ $key }})"><i class="bi bi-trash"></i> Hapus</button>
                                                 </td>
                                             </tr>
                                         @endforeach
+                                            <tr class="text-center align-middle">
+                                                <td></td>
+                                                <td colspan="3">
+                                                    <button class="btn btn-outline-primary w-100" wire:click="tambahProdukTransaksi"><i class="bi bi-plus-lg"></i>Tambah Produk</button>
+                                                </td>
+                                                <td  class="text-muted pt-1 fw-bold">{{ $total_kontrak }}</td>
+                                                <td>
+                                                    <button class="btn btn-success w-100" type="submit">Submit</button>
+                                                </td>
+                                            </tr>
                                     </tbody>
                                 </table>
                             </div>
                         </div>
+                        </form>
                     </div>
                 </div>
             </div>
-        @endif
-        @if ($formStep == 2)
-            <div class="col-12">
-                <div class="card">
-                    <div class="card-body">
-                        {{-- <form wire:submit='tambahTransaksi'> --}}
-
-                        <h5 class="card-title">Produk</h5>
-
-                        <!-- MENAMPILKAN SEMUA PRODUK YANG DIMILIKI OLEH PENYEDIA -->
-                        <div class="row">
-                            <div class="col-12">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th class=" text-center text-muted pt-1 fw-bold">Produk</th>
-                                            <th class=" text-center text-muted pt-1 fw-bold">Harga</th>
-                                            <th class=" text-center text-muted pt-1 fw-bold">Jumlah</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach ($data_produk as $key => $item)
-                                            <tr>
-                                                <td class="text-center">{{ $item->produk->nama }}</td>
-                                                <td class="text-center">
-                                                    <div class="row">
-                                                        {{ $item->harga }}
-                                                        /{{ $item->produk->satuan }}
-                                                        {{-- <input class="form-control" type="text"
-                                                        value="{{ $item->harga }}" name="" id=""
-                                                        disabled> --}}
-                                                </td>
-                                                {{-- <td>{{ $item->produk->satuan }}</td> --}}
-                                                <td><input wire:model="produk_transaksi.{{ $key }}.jumlah"
-                                                        class="form-control" type="number" min="0"></td>
-                                                <td>{{ $produk_transaksi[$key]['jumlah'] }}</td>
-                                            </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-
-                        <div class="row justify-content-between">
-                            <div class="col-auto me-auto">
-                                <button wire:click="backStep" class="btn btn-primary">Kembali</button>
-                            </div>
-                            <div class="col-auto mt-3 mb-3">
-                                <button wire:click="tambahTransaksi" class="btn btn-primary">Tambah Transaksi</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        @endif
     </div>
 
 </section>

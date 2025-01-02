@@ -91,11 +91,11 @@
                                 <table class="table table-borderless datatable">
                                     <thead>
                                         <tr class="text-center">
-                                            <th scope="col">No</th>
-                                            <th scope="col">Kode Transaksi</th>
-                                            <th scope="col">Penyedia</th>
-                                            <th scope="col">Tanggal Transaksi</th>
-                                            <th scope="col">Action</th>
+                                            <th class="text-center">No</th>
+                                            <th class="text-center">Kode Transaksi</th>
+                                            <th class="text-center">Penyedia</th>
+                                            <th class="text-center">Tanggal Transaksi</th>
+                                            <th class="text-center">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -131,11 +131,11 @@
                             <table class="table table-borderless datatable">
                                 <thead>
                                     <tr class="text-center">
-                                        <th scope="col">No</th>
-                                        <th scope="col">Penyedia</th>
-                                        <th scope="col">Jenis Usaha</th>
-                                        <th scope="col">Jumlah Transaksi</th>
-                                        <th scope="col">Action</th>
+                                        <th class="text-center">No</th>
+                                        <th class="text-center">Penyedia</th>
+                                        <th class="text-center">Jenis Usaha</th>
+                                        <th class="text-center">Jumlah Transaksi</th>
+                                        <th class="text-center">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -185,11 +185,11 @@
                             <table class="table table-borderless">
                                 <thead>
                                     <tr>
-                                        <th scope="col">Preview</th>
-                                        <th scope="col">Product</th>
-                                        <th scope="col">Price</th>
-                                        <th scope="col">Sold</th>
-                                        <th scope="col">Revenue</th>
+                                        <th class="text-center">Preview</th>
+                                        <th class="text-center">Product</th>
+                                        <th class="text-center">Price</th>
+                                        <th class="text-center">Sold</th>
+                                        <th class="text-center">Revenue</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -260,9 +260,9 @@
                     <table class="table table-borderless datatable">
                         <thead>
                             <tr class="text-center">
-                                <th scope="col">No</th>
-                                <th scope="col">Nama</th>
-                                <th scope="col">Nilai</th>
+                                <th class="text-center">No</th>
+                                <th class="text-center">Nama</th>
+                                <th class="text-center">Nilai</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -292,10 +292,10 @@
                     <table class="table table-borderless datatable">
                         <thead>
                             <tr class="text-center">
-                                <th scope="col">No</th>
-                                <th scope="col">kode</th>
-                                <th scope="col">Nama Produk</th>
-                                <th scope="col">Jumlah Transaksi</th>
+                                <th class="text-center">No</th>
+                                <th class="text-center">kode</th>
+                                <th class="text-center">Nama Produk</th>
+                                <th class="text-center">Jumlah Transaksi</th>
                             </tr>
                         </thead>
                         <tbody>

@@ -23,6 +23,7 @@
                 <tr>
                     <th class="text-center">No</th>
                     <th class="text-center">Kode Transaksi</th>
+                    <th class="text-center">Uraian Pekerjaan</th>
                     <th class="text-center">Penyedia</th>
                     <th class="text-center">Tahun Anggaran</th>
                     <th class="text-center">Tanggal Transaksi</th>
@@ -33,13 +34,14 @@
             <tbody>
                 @foreach ($daftar_transaksi as $key => $transaksi)
                     <tr class="text-center align-middle">
-                        <td>{{ $key + 1 }}</td>
-                        <td>{{ $transaksi->kode }}</td>
-                        <td>{{ $transaksi->penyedia->nama }}</td>
-                        <td>{{ $transaksi->tahun_anggaran }}</td>
-                        <td>{{ $transaksi->tanggal }}</td>
-                        <td>{{ $transaksi->nilai }}</td>
-                        <td>
+                        <td class="text-center align-middle">{{ $key + 1 }}</td>
+                        <td class="text-center align-middle">{{ $transaksi->kode }}</td>
+                        <td class="text-start">{{ $transaksi->uraian_pekerjaan }}</td>
+                        <td class="text-center align-middle">{{ $transaksi->penyedia->nama }}</td>
+                        <td class="text-center align-middle">{{ $transaksi->tahun_anggaran }}</td>
+                        <td class="text-center align-middle">{{ $transaksi->tanggal }}</td>
+                        <td class="text-center align-middle">{{ $transaksi->nilai }}</td>
+                        <td class="text-center align-middle">
                             @if (is_null($transaksi->nilai) && auth()->user()->role === 'supervisor')
                                 <a href="/nilai/{{$transaksi->id}}" class="btn btn-warning">
                                     <i class="bi bi-ui-checks"></i> Nilai

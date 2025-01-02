@@ -59,12 +59,6 @@
                 <span>Transaksi</span>
             </a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="{{ url('nilai') }}">
-                <i class="bi bi-ui-checks"></i>
-                <span>Nilai</span>
-            </a>
-        </li>
 
         {{-- MENU SUPERVISOR --}}
         @if (auth()->user()->role == 'supervisor')

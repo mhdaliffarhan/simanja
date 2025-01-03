@@ -9,6 +9,7 @@ use App\Models\Penyedia;
 use App\Models\Transaksi;
 use App\Models\AspekKinerja;
 use App\Models\ProdukPenyedia;
+use App\Models\ProdukTransaksi;
 use App\Exports\TransaksiExport;
 use Maatwebsite\Excel\Facades\Excel;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -72,29 +73,22 @@ class DatabaseTransaksi extends Component
         ];
     }
 
-    public function nilaiTransaksi($id)
-    {
-        $nilai = 0;
-        // Log Nilai
-        foreach ($this->aspek_kinerja as $key => $aspek) {
-            $nilai = $nilai + ($aspek['nilai'] * $aspek['bobot'] * 0.01);
+    public function deleteTransaksi($id){
+        try {
+            // Hapus semua produk transaksi terkait
+            ProdukTransaksi::where('transaksi_id', $id)->delete();
 
-            $log_nilai = [
-                'transaksi_id' => $id,
-                'aspek_kinerja_id' => $aspek['id'],
-                'nilai_kinerja' => $aspek['nilai'],
-            ];
-            LogNilai::create($log_nilai);
+            // Hapus transaksi
+            $transaksi = Transaksi::findOrFail($id);
+            $transaksi->delete();
+
+            Alert::success('Berhasil', 'Berhasil Menghapus Transaksi');
+            return redirect()->route('transaksi');
+        } catch (\Throwable $th) {
+            Alert::error('Gagal', $th->getMessage());
+            return redirect()->route('transaksi');
         }
-        // Perbarui Nilai pada Transaksi
-        $transaksi = Transaksi::find($id);
-        $transaksi->nilai = $nilai;
-        $transaksi->update();
-
-        Alert::success('Berhasil', 'Berhasil menilai transaksi!');
-
-        // Redirect ke halaman detail penyedia
-        return redirect()->route('transaksi');
+       
     }
 
     public function render()

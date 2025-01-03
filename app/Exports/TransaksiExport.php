@@ -21,7 +21,6 @@ class TransaksiExport implements FromCollection, WithHeadings
         ])->get();
 
         $data = [];
-        $no = 1;
 
         foreach ($produkTransaksi as $item) {
             // Mengambil data dari relasi
@@ -31,7 +30,6 @@ class TransaksiExport implements FromCollection, WithHeadings
             // dd($item);
 
             $data[] = [
-                'No' => $no++,
                 'Kode Transaksi' => $transaksi->kode,
                 'Tanggal Transaksi' => $transaksi->tanggal,
                 'Nama Badan Usaha' => $penyedia->nama ?? '-',
@@ -42,18 +40,19 @@ class TransaksiExport implements FromCollection, WithHeadings
                 'Harga' => $item->harga,
                 'Total' => $item->total,
                 'Nilai Kontrak' => $transaksi->nilai_kontrak,
-                'Nama Paket Pengadaan' => $transaksi->keterangan,
+                'Nama Paket Pengadaan' => $transaksi->uraian_pekerjaan,
                 'Tahun Anggaran' => $transaksi->tahun_anggaran,
             ];
         }
-
+        //short data berdasarkan tanggal transaksi dan kode transaksi
+        $data = collect($data)->sortBy(['Tanggal Transaksi', 'Kode Transaksi']);
+        // dd($data);
         return collect($data);
     }
 
     public function headings(): array
     {
         return [
-            'No',
             'ID Transaksi',
             'Tanggal Transaksi',
             'Nama Badan Usaha',

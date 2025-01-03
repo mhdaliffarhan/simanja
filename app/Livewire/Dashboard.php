@@ -9,7 +9,9 @@ use App\Models\Penyedia;
 use App\Models\Transaksi;
 use App\Models\DataPegawai;
 use App\Models\AspekKinerja;
+use App\Exports\AllExport;
 use Illuminate\Support\Facades\DB;
+use Maatwebsite\Excel\Facades\Excel;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class Dashboard extends Component
@@ -60,6 +62,19 @@ class Dashboard extends Component
             ->take(5)
             ->get();
     }
+
+
+    public function exportAll(){
+        try {
+            return Excel::download(new AllExport, 'export_all.xlsx');
+            Alert::success('Berhasil', 'Berhasil Menambah Produk');
+            return redirect()->route('dashboard');
+        } catch (\Throwable $th) {
+            Alert::error('Gagal', $th->getMessage());
+            return redirect()->route('dashboard');
+        }
+    }
+
     public function nilaiTransaksi($id)
     {
         $nilai = 0;

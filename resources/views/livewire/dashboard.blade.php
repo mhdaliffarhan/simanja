@@ -16,6 +16,17 @@
         <div class="col-lg-8">
             <div class="row">
 
+                <!-- Button Export All -->
+                <div class="col-xxl-12 col-md- mb-0">
+                    <div class="card">
+                        <div class="card-body m-0 p-0">
+                            <button class="btn btn-success w-100" wire:click="exportAll">
+                                <i class="bi bi-table"></i>
+                                Ekspor Data</button>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Jumlah Pegawai BPS Se Sumatera Barat -->
                 <div class="col-xxl-4 col-md-4">
                     <div class="card info-card sales-card">
@@ -35,9 +46,8 @@
                         </div>
 
                     </div>
-                </div><!-- End Sales Card -->
-
-                <!-- Revenue Card -->
+                </div>
+                
                 <div class="col-xxl-4 col-md-4">
                     <div class="card info-card revenue-card">
 

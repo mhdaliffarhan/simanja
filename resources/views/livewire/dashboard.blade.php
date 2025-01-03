@@ -98,7 +98,7 @@
                             <div class="card-body">
                                 <h5 class="card-title">Transaksi belum dinilai</h5>
 
-                                <table class="table table-borderless datatable">
+                                <table class="table table-borderless">
                                     <thead>
                                         <tr class="text-center">
                                             <th class="text-center">No</th>
@@ -138,7 +138,7 @@
                         <div class="card-body">
                             <h5 class="card-title">Penyedia menurut transaksi</h5>
 
-                            <table class="table table-borderless datatable">
+                            <table class="table table-borderless">
                                 <thead>
                                     <tr class="text-center">
                                         <th class="text-center">No</th>
@@ -267,7 +267,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Penyedia Terbaik</h5>
 
-                    <table class="table table-borderless datatable">
+                    <table class="table table-borderless">
                         <thead>
                             <tr class="text-center">
                                 <th class="text-center">No</th>
@@ -299,7 +299,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Produk terlaris</h5>
 
-                    <table class="table table-borderless datatable">
+                    <table class="table table-borderless">
                         <thead>
                             <tr class="text-center">
                                 <th class="text-center">No</th>

@@ -1,6 +1,6 @@
 <x-slot name="breadcrumb">
     <div class="row pagetitle">
-        <h1>Detail Data Penyedia</h1>
+        <h1>Detail Penyedia</h1>
         <nav>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Dashboard</a></li>

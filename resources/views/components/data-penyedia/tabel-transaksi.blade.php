@@ -12,13 +12,12 @@
         </div>
         <div class="row">
             <div class="col-12">
-                <table class="table datatable">
+                <table class="table datatableTransaksi">
                     <thead>
                         <tr>
                             <th class="text-center">No</th>
-                            <th class="text-center">Kode Transaksi</th>
-                            <th class="text-center">Tanggal Transaksi</th>
-                            <th class="text-center">Tahun Anggaran</th>
+                            <th class="text-center">Kode</th>
+                            <th class="text-center">Uraian Pekerjaan</th>
                             <th class="text-center">Action</th>
                         </tr>
                     </thead>
@@ -30,11 +29,10 @@
                         @else
                             @foreach ($daftar_transaksi as $key => $transaksi)
                                 <tr class="text-center align-middle">
-                                    <td>{{ $key + 1 }}</td>
-                                    <td>{{ $transaksi->kode }}</td>
-                                    <td>{{ $transaksi->tanggal }}</td>
-                                    <td>{{ $transaksi->tahun_anggaran }}</td>
-                                    <td>
+                                    <td class="align-middle">{{ $key + 1 }}</td>
+                                    <td class="align-middle">{{ $transaksi->kode }}</td>
+                                    <td class="text-start align-middle">{{ $transaksi->uraian_pekerjaan }}</td>
+                                    <td class="align-middle">
                                         <a href="/detail-transaksi/{{ $transaksi->id }}" class="btn btn-success">
                                             <i class="bi bi-sd-card"></i>
                                         </a>

@@ -114,6 +114,7 @@ class DetailTransaksi extends Component
                 'daftar_produk_transaksi.*.produk_id' => 'required',
                 'daftar_produk_transaksi.*.jumlah' => 'required',
                 'daftar_produk_transaksi.*.harga' => 'required',
+                'daftar_produk_transaksi' => 'required',
             ],[
                 'transaksi.tanggal.required' => 'Tanggal transaksi wajib diisi.',
                 'transaksi.penyedia_id.required' => 'Penyedia wajib diisi.',
@@ -123,6 +124,7 @@ class DetailTransaksi extends Component
                 'daftar_produk_transaksi.*.produk_id.required' => 'Produk wajib diisi.',
                 'daftar_produk_transaksi.*.jumlah.required' => 'Jumlah wajib diisi.',
                 'daftar_produk_transaksi.*.harga.required' => 'Harga wajib diisi.',
+                'daftar_produk_transaksi' => 'Setiap transaksi harus memiliki produk.',
             ]);
             
             $transaksi = Transaksi::findOrFail($this->id);

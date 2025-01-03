@@ -10,10 +10,11 @@
             </div>
         </div>
         <div class="mb-3">
-            <table class="table">
+            <table class="table datatableProduk">
                 <thead>
                     <tr>
                         <th class="text-center">No</th>
+                        <th class="text-center">Kode</th>
                         <th class="text-center">Produk</th>
                         <th class="text-center">Harga</th>
                         <th class="text-center">Action</th>
@@ -28,6 +29,7 @@
                         @foreach ($data_produk as $index => $itemm)
                             <tr class="text-center align-middle">
                                 <td>{{ $index + 1 }}</td>
+                                <td>{{ $itemm->produk->kode }}</td>
                                 <td class="text-start">{{ $itemm->produk->nama }}</td>
                                 <td>
                                     {{-- <input class="form-control" type="number" min="0"

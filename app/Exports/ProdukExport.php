@@ -16,10 +16,8 @@ class ProdukExport implements FromCollection, WithHeadings
     {
         $produk = Produk::all();
         $data = [];
-        $no = 1;
         foreach ($produk as $item) {
             $data[] = [
-                'No' => $no++,
                 'Kode Produk' => $item->kode,
                 'Nama Produk' => $item->nama,
                 'Satuan' => $item->satuan,
@@ -31,7 +29,6 @@ class ProdukExport implements FromCollection, WithHeadings
     public function headings(): array
     {
         return [
-            'No',
             'Kode Produk',
             'Nama Produk',
             'Satuan',

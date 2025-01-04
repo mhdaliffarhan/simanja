@@ -1,6 +1,5 @@
 <a href="/detail-data-produk/{{ $item->id }}" class="btn btn-success">
-    <i class="bi bi-sd-card"></i>
-    Edit
+    <i class="bi bi-pencil-square"></i>
 </a>
 
 

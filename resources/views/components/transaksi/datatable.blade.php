@@ -28,6 +28,7 @@
                     <th class="text-center">Tahun Anggaran</th>
                     <th class="text-center">Tanggal Transaksi</th>
                     <th class="text-center">Nilai</th>
+                    <th class="text-center">Predikat</th>
                     <th class="text-center">Action</th>
                 </tr>
             </thead>
@@ -36,11 +37,12 @@
                     <tr class="text-center align-middle">
                         <td class="text-center align-middle">{{ $key + 1 }}</td>
                         <td class="text-center align-middle">{{ $transaksi->kode }}</td>
-                        <td class="text-start">{{ $transaksi->uraian_pekerjaan }}</td>
+                        <td class="text-start align-middle">{{ $transaksi->uraian_pekerjaan }}</td>
                         <td class="text-center align-middle">{{ $transaksi->penyedia->nama }}</td>
                         <td class="text-center align-middle">{{ $transaksi->tahun_anggaran }}</td>
                         <td class="text-center align-middle">{{ $transaksi->tanggal }}</td>
                         <td class="text-center align-middle">{{ $transaksi->nilai }}</td>
+                        <td class="text-center align-middle">{{ $transaksi->predikat }} </td>
                         <td class="text-center align-middle">
                             @if (is_null($transaksi->nilai) && auth()->user()->role === 'supervisor')
                                 <a href="/nilai/{{$transaksi->id}}" class="btn btn-warning">

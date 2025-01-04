@@ -23,7 +23,7 @@
                 <tbody>
                     @if ($data_produk->isEmpty())
                         <tr>
-                            <td class="text-center" colspan="4">Belum ada data produk</td>
+                            <td class="text-center" colspan="5">Belum ada data produk</td>
                         </tr>
                     @else
                         @foreach ($data_produk as $index => $itemm)

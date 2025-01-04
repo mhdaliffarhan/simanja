@@ -169,18 +169,26 @@ class DetailTransaksi extends Component
 
     public function mount($id)
     {
-        $this->id = $id;
-        $transaksi = Transaksi::where('id', $id)->with('penyedia')->select('kode','tanggal','penyedia_id','nilai_kontrak','uraian_pekerjaan','tahun_anggaran','nilai')->first();
-        $this->transaksi = $transaksi ? $transaksi->toArray() : [];
-        $this->daftar_produk_penyedia = ProdukPenyedia::where('penyedia_id', $this->transaksi['penyedia_id'])->select('id','produk_id', 'harga')->get();
-        $daftar_produk_transaksi = ProdukTransaksi::where('transaksi_id', $this->id)->select('id', 'produk_id', 'jumlah','harga', 'total')->get();
-        $this->daftar_produk_transaksi = $daftar_produk_transaksi ? $daftar_produk_transaksi->toArray() : [];
-        foreach ($this->daftar_produk_transaksi as $key => $item) {
-            $satuan = Produk::where('id', $item['produk_id'])->select('satuan')->first();
-            $satuanArray = $satuan ? $satuan->toArray() : [];
-            $this->daftar_produk_transaksi[$key]['satuan'] = $satuanArray['satuan'];
+        try {
+            $this->id = $id;
+            $transaksi = Transaksi::where('id', $id)->with('penyedia')->select('kode','tanggal','penyedia_id','nilai_kontrak','uraian_pekerjaan','tahun_anggaran','nilai')->first();
+            $this->transaksi = $transaksi ? $transaksi->toArray() : [];
+            $this->daftar_produk_penyedia = ProdukPenyedia::where('penyedia_id', $this->transaksi['penyedia_id'])->select('id','produk_id', 'harga')->get();
+            $daftar_produk_transaksi = ProdukTransaksi::where('transaksi_id', $this->id)->select('id', 'produk_id', 'jumlah','harga', 'total')->get();
+            $this->daftar_produk_transaksi = $daftar_produk_transaksi ? $daftar_produk_transaksi->toArray() : [];
+            foreach ($this->daftar_produk_transaksi as $key => $item) {
+                $satuan = Produk::where('id', $item['produk_id'])->select('satuan')->first();
+                $satuanArray = $satuan ? $satuan->toArray() : [];
+                $this->daftar_produk_transaksi[$key]['satuan'] = $satuanArray['satuan'];
+            }
+            $this->total_kontrak = $this->transaksi['nilai_kontrak'];
+            if (!$this->transaksi) {
+                throw new \Exception('Transaksi tidak ditemukan.');
+            }
+        } catch (\Throwable $th) {
+            Alert::error('Gagal', $th->getMessage());
+            return redirect()->route('detail-transaksi', ['id' => $this->id]);
         }
-        $this->total_kontrak = $this->transaksi['nilai_kontrak'];
     }
 
     public function render()

@@ -1,7 +1,6 @@
 <!-- MODAL DELETE DATA Produk -->
 <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalDeleteProduk{{$item->id}}">
   <i class="bi bi-trash"></i>
-   Hapus
 </button>
 <div class="modal fade" id="modalDeleteProduk{{$item->id}}" tabindex="-1">
   <div class="modal-dialog modal-dialog-centered">

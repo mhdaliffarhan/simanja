@@ -116,7 +116,7 @@
                                                 <td>{{ $transaksi->penyedia->nama }}</td>
                                                 <td>{{ $transaksi->tanggal }}</td>
                                                 <td>
-                                                    <a href="/nilai/{{$transaksi->id}}" class="btn btn-warning">
+                                                    <a href="/nilai/{{$transaksi->id}}" class="btn btn-warning btn-sm">
                                                         <i class="bi bi-ui-checks"></i> Nilai
                                                     </a>
                                                 </td>
@@ -158,7 +158,7 @@
                                             <td>
                                                 <a href="/detail-data-penyedia/{{ $penyedia->id }}"
                                                     class="btn btn-success btn-sm">
-                                                    Detail
+                                                    <i class="bi bi-sd-card"></i>
                                                 </a>
                                             </td>
                                         </tr>

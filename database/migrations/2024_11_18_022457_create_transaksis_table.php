@@ -19,7 +19,7 @@ return new class extends Migration
             $table->bigInteger('nilai_kontrak');
             $table->string('uraian_pekerjaan')->nullable();
             $table->decimal('nilai', 10, 2)->nullable();
-            $table->enum('predikat',['sangat_baik,baik,cukup'])->nullable();
+            $table->enum('predikat',['Sangat Baik','Baik','Cukup', 'Buruk'])->nullable();
             $table->year('tahun_anggaran');
             $table->softDeletes();
             $table->timestamps();

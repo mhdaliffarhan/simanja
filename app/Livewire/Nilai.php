@@ -45,8 +45,16 @@ class Nilai extends Component
 
     public function mount($id)
     {
-        $this->transaksi = Transaksi::where('id', $id)->with('penyedia')->first();
-        $this->aspek_kinerja = AspekKinerja::getAll();
+        try {
+            $this->transaksi = Transaksi::where('id', $id)->with('penyedia')->first();
+            if (!$this->transaksi) {
+                throw new \Exception('Form nilai tidak ditemukan.');
+            }
+            $this->aspek_kinerja = AspekKinerja::getAll();
+        } catch (\Throwable $th) {
+            Alert::error('Gagal', $th->getMessage());
+            return redirect()->route('transaksi');
+        }
     }
 
     public function save()

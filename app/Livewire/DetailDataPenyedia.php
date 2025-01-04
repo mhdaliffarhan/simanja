@@ -8,7 +8,6 @@ use App\Models\Penyedia;
 use App\Models\Transaksi;
 use App\Models\ProdukPenyedia;
 use App\Models\ProdukTransaksi;
-use PhpParser\Node\Stmt\Foreach_;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class DetailDataPenyedia extends Component
@@ -183,7 +182,6 @@ class DetailDataPenyedia extends Component
 
     public function render()
     {
-
         return view('livewire.detail-data-penyedia')->layout('layouts.app');
     }
 }

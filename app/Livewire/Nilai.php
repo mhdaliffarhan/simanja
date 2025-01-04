@@ -37,9 +37,10 @@ class Nilai extends Component
 
     private function tentukanPredikat($nilai)
     {
-        if ($nilai >= 2.5) return 'Sangat Baik';
+        if ($nilai == 3) return 'Sangat Baik';
         if ($nilai >= 2) return 'Baik';
-        return 'Cukup';
+        if ($nilai >= 1) return 'Cukup';
+        return 'Buruk';
     }
 
     public function mount($id)
@@ -51,6 +52,7 @@ class Nilai extends Component
     public function save()
     {
         try {
+            $this->transaksi['predikat'] = $this->predikat;
             $validatedData = $this->validate([
                 'selectedValues.*' => 'required|in:1,2,3',
             ], [
@@ -63,6 +65,7 @@ class Nilai extends Component
                     'nilai_kinerja' => $value,
                 ]);
             }
+            
             $this->transaksi->nilai = $this->nilai_akhir;
             $transaksi = $this->transaksi->toArray();
             $this->transaksi->update($transaksi);

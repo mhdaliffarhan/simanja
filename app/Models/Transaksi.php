@@ -15,6 +15,7 @@ class Transaksi extends Model
         'penyedia_id',
         'nilai_kontrak',
         'nilai',
+        'predikat',
         'tahun_anggaran',
         'uraian_pekerjaan',
     ];

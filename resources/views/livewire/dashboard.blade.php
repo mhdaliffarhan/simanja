@@ -20,7 +20,7 @@
                 <div class="col-xxl-12 col-md- mb-0">
                     <div class="card">
                         <div class="card-body m-0 p-0">
-                            <button class="btn btn-success w-100" wire:click="exportAll">
+                            <button class="btn btn-outline-success w-100" wire:click="exportAll">
                                 <i class="bi bi-table"></i>
                                 Ekspor Data</button>
                         </div>

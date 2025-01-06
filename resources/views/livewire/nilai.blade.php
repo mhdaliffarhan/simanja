@@ -72,67 +72,6 @@
                             <span class="text-muted pt-1 fw-bold">Nilai</span>
                         </div>
                         @include('components.form-nilai')
-                        {{-- <div class="col-12">
-                            <table class="table">
-                                <thead>
-                                    <tr class="text-center align-middle">
-                                        <th class="border border-gray-300 px-4 ">No</th>
-                                        <th class="border border-gray-300 px-4 ">ASPEK KINERJA</th>
-                                        <th class="border border-gray-300 px-4 ">BOBOT</th>
-                                        <th class="border border-gray-300 px-4 ">KRITERIA</th>
-                                        <th class="border border-gray-300 px-4 ">URAIAN PENILAIAN ATAS CAPAIAN INDIKATOR
-                                            KINERJA</th>
-                                        <th class="border border-gray-300 px-4 ">SKOR</th>
-                                        <th class="border border-gray-300 px-4 ">NILAI KINERJA</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($aspek_kinerja as $key => $aspek)
-                                        <tr class="align-middle">
-                                            <td rowspan="3" class="border border-gray-300 px-4 ">
-                                                {{ $key + 1 }}
-                                            </td>
-                                            <td rowspan="3" class="border border-gray-300 px-4 ">
-                                                {{ $aspek['aspek_kinerja'] }}
-                                            </td>
-                                            <td rowspan="3" class="border border-gray-300 px-4 ">
-                                                {{ $aspek['bobot'] }}%
-                                            </td>
-                                            <td class="border border-gray-300 px-4 ">
-                                                Cukup
-                                            </td>
-                                            <td class="border border-gray-300 px-4 ">
-                                                {{ $aspek['cukup'] }}
-                                            </td>
-                                            <td rowspan="3" class="border border-gray-300 px-4 ">
-                                                <input type="number" wire:model="skor_kualitas"
-                                                    class="form-input border-gray-300 w-full" min="1"
-                                                    max="3" />
-                                            </td>
-                                            <td rowspan="3" class="border border-gray-300 px-4 ">
-                                                {{ $kinerja_kualitas }}
-                                            </td>
-                                        <tr class="align-middle">
-                                            <td class="border border-gray-300 px-4 ">
-                                                Baik
-                                            </td>
-                                            <td class="border border-gray-300 px-4 ">
-                                                {{ $aspek['baik'] }}
-                                            </td>
-                                        </tr>
-                                        <tr class="align-middle">
-                                            <td class="border border-gray-300 px-4 ">
-                                                Sangat Baik
-                                            </td>
-                                            <td class="border border-gray-300 px-4 ">
-                                                {{ $aspek['sangat_baik'] }}
-                                            </td>
-                                        </tr>
-
-                                        </tr>
-                                    @endforeach
-                                </tbody>
-                            </table> --}}
 
                         <!-- Total -->
                         <div wire:poll.1s class="mt-4 mb-4 mx-5rem p-4 border rounded bg-gray-50">

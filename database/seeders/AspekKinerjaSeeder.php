@@ -24,8 +24,7 @@ class AspekKinerjaSeeder extends Seeder
             [
                 'aspek_kinerja' => 'Biaya',
                 'bobot' => '20',
-                'cukup' => 'a.	Tidak menginformasikan sejak awal kondisi / kejadian yang berpotensi menambah biaya
-                b.	Mengajukan perbuhan kontrak yang akan berdampak pada penambahan total biaya tanpa alasan yang memadai sehingga ditolak oleh PPK',
+                'cukup' => 'Tidak menginformasikan sejak awal kondisi atau kejadian yang berpotensi menambah biaya, dan mengajukan perubahan kontrak yang akan berdampak pada penambahan total biaya tanpa alasan yang memadai sehingga ditolak oleh PPK.',
                 'baik' => 'Melakukan salah satu kondisi pada kriteria cukup',
                 'sangat_baik' => 'Telah melakukan pengendalian biaya dengan baik dengan menginformasikan sejak awal atas kondisi yang berpotensi menambah biaya dan perubahan kontrak yang di ajukan sudah didasari dengan alasan yang dapat di pertanggungjawabkan, sehingga penambahan biaya dapat diantisipasi.'
             ],
@@ -39,9 +38,9 @@ class AspekKinerjaSeeder extends Seeder
             [
                 'aspek_kinerja' => 'Layanan',
                 'bobot' => '20',
-                'cukup' => 'a.	Penyedia lambat memberikan tanggapan positif atas permintaan PPK b.	Penyedia sulit diajak berdiskusi dalam penyelesaian pelaksanaan pekerjaan',
+                'cukup' => 'Penyedia lambat memberikan tanggapan positif atas permintaan PPK dan sulit diajak berdiskusi dalam penyelesaian pelaksanaan pekerjaan.',
                 'baik' => 'Merespon permintaan dengan penyelesaian sesuai dengan yang diminta atau Penyedia mudah dihubungi dan berdiskusi dalam penyelesian pelaksanan pekerjaan',
-                'sangat_baik' => 'a.	Merespon permintaan dengan penyelesaian sesuai dengan yang diminta, dan Penyedia mudah dihubungi dan berdiskusi dalam penyelesaian pelaksanaan pekerjaan'
+                'sangat_baik' => 'Merespon permintaan dengan penyelesaian sesuai dengan yang diminta, dan penyedia mudah dihubungi serta berdiskusi dalam penyelesaian pelaksanaan pekerjaan.'
             ],
         ];
 

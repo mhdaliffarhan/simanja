@@ -21,7 +21,7 @@ new class extends Component {
     /**
      * Update the profile information for the currently authenticated user.
      */
-    public function updateProfileInformation(): void
+    public function updateProfileInformation()
     {
         $user = Auth::user();
 
@@ -33,7 +33,8 @@ new class extends Component {
 
         $user->save();
 
-        $this->dispatch('profile-updated', username: $user->username);
+        toast('Berhasil memperbarui profil!', 'success');
+        return redirect()->route('profile');
     }
 
     /**

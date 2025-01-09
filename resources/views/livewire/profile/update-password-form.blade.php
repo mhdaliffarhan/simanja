@@ -15,7 +15,7 @@ new class extends Component
     /**
      * Update the password for the currently authenticated user.
      */
-    public function updatePassword(): void
+    public function updatePassword()
     {
         try {
             $validated = $this->validate([
@@ -34,7 +34,8 @@ new class extends Component
 
         $this->reset('current_password', 'password', 'password_confirmation');
 
-        $this->dispatch('password-updated');
+        Alert::success('Berhasil', 'Password berhasil diperbarui!');
+        return redirect()->route('profile');
     }
 }; ?>
 

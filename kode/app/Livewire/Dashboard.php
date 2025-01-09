@@ -62,7 +62,7 @@ class Dashboard extends Component
 
     public function exportAll(){
         try {
-            return Excel::download(new AllExport, 'export_all.xlsx');
+            return Excel::download(new AllExport, 'Data-Pengadaan-Barang-dan-Jasa.xlsx');
             Alert::success('Berhasil', 'Berhasil Menambah Produk');
             return redirect()->route('dashboard');
         } catch (\Throwable $th) {

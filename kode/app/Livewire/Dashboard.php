@@ -7,7 +7,6 @@ use Livewire\Component;
 use App\Models\LogNilai;
 use App\Models\Penyedia;
 use App\Models\Transaksi;
-use App\Models\DataPegawai;
 use App\Models\AspekKinerja;
 use App\Exports\AllExport;
 use Illuminate\Support\Facades\DB;
@@ -30,7 +29,6 @@ class Dashboard extends Component
 
     public function mount()
     {
-        $this->jumlah_pegawai = DataPegawai::count();
         $this->jumlah_penyedia = Penyedia::count();
         $this->jumlah_produk = Produk::count();
         $this->jumlah_transaksi = Transaksi::count();
@@ -52,8 +50,6 @@ class Dashboard extends Component
                 'nilai' => null, // Nilai default
             ];
         })->toArray();
-        // dd($this->transaksi_belum_dinilai);
-        // dd($this->penyedia_terlaris);
         $this->penyedia_nilai_tertinggi = Penyedia::with('transaksi')
             ->select('penyedias.*', DB::raw('ROUND(AVG(transaksis.nilai), 1) as nilai_rata_rata'))
             ->join('transaksis', 'penyedias.id', '=', 'transaksis.penyedia_id')

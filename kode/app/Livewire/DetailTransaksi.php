@@ -9,8 +9,6 @@ use App\Models\ProdukPenyedia;
 use App\Models\ProdukTransaksi;
 use RealRashid\SweetAlert\Facades\Alert;
 
-use function PHPUnit\Framework\isEmpty;
-
 class DetailTransaksi extends Component
 {
 

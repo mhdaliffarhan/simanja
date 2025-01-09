@@ -7,40 +7,6 @@
                 <span>Dashboard</span>
             </a>
         </li>
-        {{-- <li class="nav-item">
-          <a class="nav-link collapsed" href="{{ url('input-angka-kredit') }}">
-              <i class="bi bi-pencil"></i>
-              <span>Input Angka Kredit</span>
-          </a>
-      </li>
-      <li class="nav-item">
-          <a class="nav-link collapsed" href="{{ url('database-pegawai') }}">
-              <i class="bi bi-layout-text-window-reverse"></i>
-              <span>Database Pegawai</span>
-          </a>
-        </li> --}}
-        {{-- <li class="nav-item">
-            <a class="nav-link collapsed" data-bs-target="#produk-nav" data-bs-toggle="collapse" href="#">
-                <i class="bi bi-cart2"></i><span>Produk</span><i class="bi bi-chevron-down ms-auto"></i>
-            </a>
-            <ul id="produk-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-                <li>
-                    <a href="{{ url('tambah-produk') }}">
-                        <i class="bi bi-circle"></i><span>Tambah Produk</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ url('database-produk') }}">
-                        <i class="bi bi-circle"></i><span>Database Produk</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ url('database-produk') }}">
-                        <i class="bi bi-circle"></i><span>Ekspor Data</span>
-                    </a>
-                </li>
-            </ul>
-        </li> --}}
         <li class="nav-item">
             <a class="nav-link collapsed" href="{{ url('database-produk') }}">
                 <i class="bi bi-cart2"></i>
@@ -70,6 +36,11 @@
                     <li>
                         <a href="{{ url('daftar-pengentri') }}">
                             <i class="bi bi-circle"></i><span>Daftar Pengentri</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ url('import-data') }}">
+                            <i class="bi bi-circle"></i><span>Impor Data</span>
                         </a>
                     </li>
                     {{-- FITUR ASPEK KINERJA DINAMIS UNTUK PENGEMBANGAN LEBIH LANJUT --}}

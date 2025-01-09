@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('produks', function (Blueprint $table) {
             $table->id();
-            $table->string('kode');
-            $table->string('nama')->unique();
+            $table->string('kode')->unique();
+            $table->string('nama');
             $table->string('satuan');
             $table->softDeletes();
             $table->timestamps();

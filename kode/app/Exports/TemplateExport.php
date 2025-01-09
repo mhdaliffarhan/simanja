@@ -55,7 +55,6 @@ class ProdukExport implements \Maatwebsite\Excel\Concerns\FromArray
                 'Nama Narahubung', 
                 'No. HP Narahubung', 
                 'Jabatan Narahubung', 
-                'Rata-rata Nilai'
             ],
             [
                 'No' => 1,
@@ -79,7 +78,6 @@ class ProdukExport implements \Maatwebsite\Excel\Concerns\FromArray
                 'Nama Narahubung' => 'Andi Wijaya',
                 'No. HP Narahubung' => '081987654321',
                 'Jabatan Narahubung' => 'Manager Operasional',
-                'Rata-rata Nilai' => 90.5
             ],
         ];
     }

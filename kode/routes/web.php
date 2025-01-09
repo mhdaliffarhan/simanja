@@ -3,6 +3,7 @@
 use App\Livewire\Nilai;
 use App\Livewire\Dashboard;
 use App\Livewire\DaftarAdmin;
+use App\Livewire\ImportData;
 use App\Livewire\AspekKinerja;
 use App\Livewire\DatabaseProduk;
 use App\Livewire\DetailTransaksi;
@@ -42,6 +43,7 @@ Route::middleware('auth')->group(function () {
 
     // Menu Admin
     Route::get('/daftar-pengentri', DaftarAdmin::class)->name('daftar-admin');
+    Route::get('/import-data', ImportData::class)->name('import-data');
     Route::get('/aspek-kinerja', AspekKinerja::class)->name('aspek-kinerja');
 });
 

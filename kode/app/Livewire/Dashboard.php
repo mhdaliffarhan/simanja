@@ -7,17 +7,14 @@ use Livewire\Component;
 use App\Models\LogNilai;
 use App\Models\Penyedia;
 use App\Models\Transaksi;
-use App\Models\AspekKinerja;
 use App\Exports\AllExport;
+use App\Models\AspekKinerja;
 use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Facades\Excel;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class Dashboard extends Component
 {
-    public $data_pegawai;
-    public $jumlah_pegawai;
-    public $layak_promosi;
     public $jumlah_penyedia;
     public $jumlah_produk;
     public $jumlah_transaksi;
@@ -32,37 +29,27 @@ class Dashboard extends Component
         $this->jumlah_penyedia = Penyedia::count();
         $this->jumlah_produk = Produk::count();
         $this->jumlah_transaksi = Transaksi::count();
-        $this->produk_terlaris = Produk::withCount('produkTransaksi')
-            ->orderBy('produk_transaksi_count', 'desc')
-            ->take(5)
-            ->get();
-        $this->penyedia_terlaris = Penyedia::withCount('transaksi')
-            ->orderBy('transaksi_count', 'desc')
-            ->take(5)
-            ->get();
+        $this->produk_terlaris = Produk::withCount('produkTransaksi')->orderBy('produk_transaksi_count', 'desc')->take(5)->get();
+        $this->penyedia_terlaris = Penyedia::withCount('transaksi')->orderBy('transaksi_count', 'desc')->take(5)->get();
 
         $this->transaksi_belum_dinilai = Transaksi::where('nilai', null)->with('penyedia')->get();
-        $this->aspek_kinerja = AspekKinerja::all()->map(function ($item) {
-            return [
-                'id' => $item->id,
-                'aspek_kinerja' => $item->aspek_kinerja,
-                'bobot' => $item->bobot,
-                'nilai' => null, // Nilai default
-            ];
-        })->toArray();
-        $this->penyedia_nilai_tertinggi = Penyedia::with('transaksi')
-            ->select('penyedias.*', DB::raw('ROUND(AVG(transaksis.nilai), 1) as nilai_rata_rata'))
-            ->join('transaksis', 'penyedias.id', '=', 'transaksis.penyedia_id')
-            ->groupBy('penyedias.id')
-            ->orderBy('nilai_rata_rata', 'desc')
-            ->take(5)
-            ->get();
+        $this->aspek_kinerja = AspekKinerja::all()
+            ->map(function ($item) {
+                return [
+                    'id' => $item->id,
+                    'aspek_kinerja' => $item->aspek_kinerja,
+                    'bobot' => $item->bobot,
+                    'nilai' => null, // Nilai default
+                ];
+            })
+            ->toArray();
+        $this->penyedia_nilai_tertinggi = Penyedia::with('transaksi')->select('penyedias.*', DB::raw('ROUND(AVG(transaksis.nilai), 1) as nilai_rata_rata'))->join('transaksis', 'penyedias.id', '=', 'transaksis.penyedia_id')->groupBy('penyedias.id')->orderBy('nilai_rata_rata', 'desc')->take(5)->get();
     }
 
-
-    public function exportAll(){
+    public function exportAll()
+    {
         try {
-            return Excel::download(new AllExport, 'Data-Pengadaan-Barang-dan-Jasa.xlsx');
+            return Excel::download(new AllExport(), 'Data-Pengadaan-Barang-dan-Jasa.xlsx');
             Alert::success('Berhasil', 'Berhasil Menambah Produk');
             return redirect()->route('dashboard');
         } catch (\Throwable $th) {
@@ -76,7 +63,7 @@ class Dashboard extends Component
         $nilai = 0;
         // Log Nilai
         foreach ($this->aspek_kinerja as $key => $aspek) {
-            $nilai = $nilai + ($aspek['nilai'] * $aspek['bobot'] * 0.01);
+            $nilai = $nilai + $aspek['nilai'] * $aspek['bobot'] * 0.01;
 
             $log_nilai = [
                 'transaksi_id' => $id,
